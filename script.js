@@ -61,9 +61,23 @@ function resetGrid(){
 }
 
 function illuminate(guess, flag){
-    for(let j = (flag ? guess : 0); j<(flag ? maxNum : guess); ++j){
-        if(!arr[j])
-            contents[j].style.setProperty("background-color", "rgb(23, 196, 104)");
+    if(flag){
+        for(let i = guess+1; i<maxNum; ++i){
+            if(!arr[i])
+                contents[i].style.setProperty("background-color", "rgb(23, 196, 104)");
+            else{
+                break;
+            }
+        }
+    }
+    else{
+        for(let i = guess-1; i>=0; --i){
+            if(!arr[i])
+                contents[i].style.setProperty("background-color", "rgb(23, 196, 104)");
+            else{
+                break;
+            }
+        }
     }
     setTimeout(() => {
         for(let j = (flag ? guess : 0); j<(flag ? maxNum : guess); ++j){
